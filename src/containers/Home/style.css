@@ -1,0 +1,13 @@
+.h_container {
+    width: 70%;
+    margin: 10rem auto;
+}
+
+.h_container .nav {
+    /*margin: 10rem auto;*/
+    text-align: center;
+}
+
+.h_container .main {
+    /*background: #fff;*/
+}
