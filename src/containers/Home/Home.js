@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 import './style.css';
 import Header from '../../components/Header/Header';
 import Menus from '../../components/Menus/Menus';
+import ArticleList from '../../components/ArticleList';
 
 class Home extends Component {
     render() {
+        const { tags } = this.props;
         return (
             <div className={"h_container"}>
                 <Header />
@@ -12,7 +14,7 @@ class Home extends Component {
                     <Menus/>
                 </div>
                 <div className={"main"}>
-                    这是文章列表
+                    <ArticleList history={this.props.history} tags={tags}/>
                 </div>
             </div>
         )
