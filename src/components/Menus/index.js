@@ -23,6 +23,7 @@ export default class Menus extends Component {
         this.setState({
             current: e.key,
         });
+        console.log('测试！！！！！', this.props.history)
         this.props.history.push(toPath);
     }
 

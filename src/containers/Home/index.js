@@ -7,9 +7,10 @@ import { Redirect } from 'react-router-dom';
 
 
 class Home extends Component {
-
     render() {
         const { tags } = this.props;
+        // console.log('history:', this.props.history);
+        // console.log('history:', this.props.history.push);
         return (
             <div className="h_container">
                 <Header />

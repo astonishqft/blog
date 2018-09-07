@@ -1,26 +1,28 @@
-import React, { Component } from 'react';
-import { Route, Switch } from 'react-router-dom';
-import Home from '../Home';
-import Detail from '../Detail';
+import React, {Component} from 'react'
+import {
+    Route,
+    Switch
+} from 'react-router-dom'
+import Home from '../Home'
+import Detail from '../Detail'
 import NotFound from '../NotFound'
-import { BackTop } from 'antd';
+import { BackTop } from 'antd'
 
 class Front extends Component {
-    // constructor(props) {
-    //     super(props);
-    // }
+    constructor(props){
+        super(props);
+    }
 
     render() {
-        const { url } = this.props.match;
-        return (
+        const {url} = this.props.match;
+        return(
             <div>
-                <div>
+                <div >
                     <Switch>
-                        <Route exact path={url} component={Home} />
-                        <Route path={`/detail/:id`} component={Detail} />
-                        <Route path={`/:tag`} component={Home} />
+                        <Route exact path={url} component={Home}/>
+                        <Route path={`/detail/:id`} component={Detail}/>
+                        <Route path={`/:tag`} component={Home}/>
                         <Route component={NotFound}/>
-
                     </Switch>
                 </div>
                 <BackTop />

@@ -22,9 +22,9 @@ class ArticleList extends Component {
         return (
             <div>
                 {
-                    items.map((item, index) => {
-                        <ArticleListCell history={this.props.history} key={index} tags={tags} />
-                    })
+                    items.map((item,index) => (
+                        <ArticleListCell history={this.props.history} key={index} data={item} tags={tags} />
+                    ))
                 }
             </div>
         )
