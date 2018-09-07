@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import remark from 'react';
-import reactRender from 'remark-react';
+import remark from 'remark';
+import reactRenderer from 'remark-react';
 import '../Home/style.css';
 import '../../components/Header/style.css';
 import './style.css';
@@ -17,7 +17,7 @@ class Detail extends Component {
                 <div className="main">
                     <div id='preview' className="main">
                         <div className="markdown_body">
-                            {remark().use(reactRender).processSync(articleContent).contents}
+                            {remark().use(reactRenderer).processSync(articleContent).contents}
                         </div>
                     </div>
                 </div>
