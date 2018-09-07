@@ -5,7 +5,6 @@ import './index.css';
 import Front from './containers/Front';
 import { BrowserRouter as Router, Switch, Route, history } from 'react-router-dom';
 
-import Home from './containers/Home/Home';
 
 ReactDOM.render(
     <Router>

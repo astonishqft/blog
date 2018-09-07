@@ -18,8 +18,15 @@ const items = [{
 
 class ArticleList extends Component {
     render() {
+        const { tags } = this.props;
         return (
-            <h1> Hello qifutao</h1>
+            <div>
+                {
+                    items.map((item, index) => {
+                        <ArticleListCell history={this.props.history} key={index} tags={tags} />
+                    })
+                }
+            </div>
         )
     }
 };

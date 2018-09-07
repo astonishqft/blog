@@ -1,30 +1,38 @@
 import React, { Component } from 'react';
-import { Menu } from 'antd';
 import './style.css';
+import { Menu, } from 'antd';
 
-// const { Item } = Menu;
+const categories = ['首页','iOS','Python','ReactJs'];
 
-const categories = ['首页', 'iOS', 'Python', 'ReactJs'];
-
-class Menus extends Component {
+export default class Menus extends Component {
     constructor(props) {
-        super(props);
+        super(props)
         this.state = {
-            current: categories[0],
+            current: categories[0]
         }
     }
+
     handleClick = (e) => {
+        console.log('click ', e);
+        if(e.key === '首页'){
+            // this.props.getArticleList('');
+        }else{
+            // this.props.getArticleList(e.key);
+        }
+        let toPath = e.key === '首页'?'/':'/'+e.key;
         this.setState({
-            current: e
-        })
+            current: e.key,
+        });
+        this.props.history.push(toPath);
     }
+
     render() {
         return (
             <Menu
                 onClick={this.handleClick}
                 selectedKeys={[this.state.current]}
-                mode={"horizontal"}
-                className={"menuContainer"}
+                mode="horizontal"
+                className="menucontainer"
             >
                 {
                     categories.map((item,index)=>(
@@ -36,6 +44,4 @@ class Menus extends Component {
             </Menu>
         )
     }
-};
-
-export default Menus;
+}
