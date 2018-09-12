@@ -18,6 +18,5 @@ ReactDOM.render(
             </Switch>
         </div>
     </Router>
-    ,
-    document.getElementById('root')
+    , document.getElementById('root')
 );
