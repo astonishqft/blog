@@ -18,7 +18,6 @@ class Home extends Component {
                     <Menus history={this.props.history} />
                 </div>
                 <div className="main">
-                    3333
                     <ArticleList history={this.props.history} tags={tags} />
                 </div>
             </div>
