@@ -36,7 +36,8 @@ if(process.env.NODE_ENV !== 'production') {
     const compiler = Webpack(webpackConfig);
 
     app.use(WebpackDevMiddleware(compiler, {
-        publicPath: '/',
+        // publicPath: '/',
+        publicPath: webpackConfig.output.publicPath, // 这里的publicPath我的理解是相对于express.static中设置的静态路径
         stats: {colors: true},
         lazy: false,
         watchOptions: {
