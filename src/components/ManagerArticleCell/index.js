@@ -1,19 +1,19 @@
 import React from 'react';
-import './style.css';
+import style from './style.css';
 import  { Button } from 'antd';
 
 export const ManagerArticleCell = (props)=>(
-    <div className="managerArticleCellContainer">
-        <div className="cellAboutArticle">
-            <p className="articleTitle">{props.data.title}</p>
-            <p className="articleInfo">
+    <div className={style.managerArticleCellContainer}>
+        <div className={style.cellAboutArticle}>
+            <p className={style.articleTitle}>{props.data.title}</p>
+            <p className={style.articleInfo}>
                 <span>作者:{props.data.author}</span>
                 <span>阅读数:{props.data.viewCount}</span>
                 <span>评论数:{props.data.commentCount}</span>
                 <span>发表时间:{props.data.time}</span>
             </p>
         </div>
-        <div className="cellState">
+        <div className={style.cellState}>
             <span>
                 {props.data.isPublish?'已发布':'草稿'}
             </span>

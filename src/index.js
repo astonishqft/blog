@@ -6,9 +6,11 @@ import Front from './containers/Front';
 import Admin from './containers/Admin';
 import { BrowserRouter as Router, Switch, Route, history } from 'react-router-dom';
 import NotFound from "./containers/NotFound";
+import { AppContainer } from 'react-hot-loader';
 
 
 ReactDOM.render(
+    <AppContainer>
     <Router>
         <div>
             <Switch>
@@ -18,5 +20,6 @@ ReactDOM.render(
             </Switch>
         </div>
     </Router>
+    </AppContainer>
     , document.getElementById('root')
 );

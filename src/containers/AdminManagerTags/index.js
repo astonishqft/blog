@@ -1,5 +1,5 @@
 import React,  { Component } from 'react';
-import './style.css';
+import style from './style.css';
 import {Tag, Input, Tooltip, Button} from 'antd'
 import _ from 'lodash';
 
@@ -50,7 +50,7 @@ class AdminManagerTags extends Component {
                 {tags.map( (tag, index) => {
                     const isLongTag = tag.length > 20;
                     const tagElem = (
-                        <Tag className="tagStyle" key={index} closable={index !== 0} afterClose={ () => this.handleDelete(tag) }>
+                        <Tag className={style.tagStyle} key={index} closable={index !== 0} afterClose={ () => this.handleDelete(tag) }>
                             {isLongTag ? `${tag.slice(0,20)}...` : tag}
                         </Tag>
                     );
@@ -58,7 +58,7 @@ class AdminManagerTags extends Component {
                 })}
                 {inputVisible && (
                     <Input
-                        className="tagStyle"
+                        className={style.tagStyle}
                         ref={this.saveInputRef}
                         type="text"
                         size="small"
@@ -71,7 +71,7 @@ class AdminManagerTags extends Component {
                 )}
                 { !inputVisible && (
                     <Button
-                        className="tagStyle"
+                        className={style.tagStyle}
                         size="small"
                         type="dashed"
                         onClick={this.showInput}
