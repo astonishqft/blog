@@ -27,6 +27,9 @@ app.use(session({
     cookie: {maxAge: 60 * 1000 * 30}
 }));
 
+// 展示页面路由
+app.use('/', require('./main'));
+
 // 管理页面路由
 app.use('/admin', require('./admin'));
 

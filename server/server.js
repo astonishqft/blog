@@ -37,7 +37,7 @@ if(process.env.NODE_ENV !== 'production') {
 
     app.use(WebpackDevMiddleware(compiler, {
         // publicPath: '/',
-        publicPath: webpackConfig.output.publicPath, // 这里的publicPath我的理解是相对于express.static中设置的静态路径
+        publicPath: `${webpackConfig.output.publicPath}`, // 绑定中间件的公共路径,与webpack配置的路径相同
         stats: {colors: true},
         lazy: false,
         watchOptions: {

@@ -8,18 +8,22 @@ import { BrowserRouter as Router, Switch, Route, history } from 'react-router-do
 import NotFound from "./containers/NotFound";
 import { AppContainer } from 'react-hot-loader';
 
+import { Provider } from 'react-redux';
+import configStore from './configureStore';
+
+import AppIndex from './containers';
+
+const store = configStore();
 
 ReactDOM.render(
     <AppContainer>
-    <Router>
-        <div>
-            <Switch>
-                <Route path={'/404'} component={NotFound} />
-                <Route path={'/admin'} component={Admin} />
-                <Route component={Front} />
-            </Switch>
-        </div>
-    </Router>
+        <Provider store={store}>
+            <AppIndex/>
+        </Provider>
     </AppContainer>
     , document.getElementById('root')
 );
+
+if(module.hot && process.env.NODE_ENV !== 'production'){
+    module.hot.accept();
+}

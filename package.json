@@ -4,8 +4,11 @@
   "private": true,
   "scripts": {
     "start": "react-scripts start",
-    "watch-dev-client": "cross-env NODE_ENV=development node ./server/index.js",
-    "start": "npm run watch-dev-client"
+    "watch-dev-client": "cross-env NODE_ENV=development HOST=192.168.61.128 PORT=3000 node ./server/index.js",
+
+    "start-dev-api": "cross-env APIHOST=192.168.61.128 nodemon --watch server/api server/api/index.js",
+
+    "start": "npm run watch-dev-client & npm run start-dev-api"
   },
   "dependencies": {
     "antd": "^2.13.1",
