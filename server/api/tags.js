@@ -1,5 +1,5 @@
 import express from 'express';
-import Tag from '../../models/tag';
+import Tag from '../../models/tags';
 import { responseClient } from '../util';
 
 const router = express.Router();
@@ -24,6 +24,15 @@ router.post('/addTag', function(req, res) {
         }
     }).catch(err => {
         responseClient(res);
+    })
+});
+
+// 删除标签
+router.get('/delTag', (req, res) => {
+    const { name } = req.query;
+    Tag.remove({name}).then(result=> {
+        console.error('删除成功结果:', result);
+        responseClient(res, 200, 0, '删除成功!')
     })
 });
 

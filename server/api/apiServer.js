@@ -34,7 +34,8 @@ app.use('/', require('./main'));
 app.use('/admin', require('./admin'));
 
 mongoose.Promise = require('bluebird');
-mongoose.connect(`mongodb://${config.dbHost}:${config.dbPort}/blog`, function(err) {
+// mongoose.connect(`mongodb://${config.dbHost}:${config.dbPort}/blog`, function(err) {
+mongoose.connection.openUri(`mongodb://${config.dbHost}:${config.dbPort}/blog`, function(err) {
    if (err) {
        console.log("数据库连接失败", err)
        return;
