@@ -97,34 +97,34 @@ class AdminManagerTags extends Component {
     }
 }
 
-// const mapStateToProps = state => {
-//     const {tags} = state.admin;
-//     return {
-//         tags
+const mapStateToProps = state => {
+    const {tags} = state.admin.tags;
+    return {
+        tags
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        getAllTags: bindActionCreators(get_all_tags, dispatch),
+        deleteTag: bindActionCreators(delete_tag, dispatch),
+        addTag: bindActionCreators(add_tag, dispatch)
+    }
+}
+
+// function mapStateToProps(state) {
+//     return{
+//         tags:state.admin.tags
 //     }
 // }
 //
-// const mapDispatchToProps = dispatch => {
-//     return {
-//         getAllTags: bindActionCreators(get_all_tags, dispatch),
-//         deleteTag: bindActionCreators(delete_tag, dispatch),
-//         addTag: bindActionCreators(add_tag, dispatch)
+// function mapDispatchToProps(dispatch) {
+//     return{
+//         getAllTags : bindActionCreators(get_all_tags,dispatch),
+//         deleteTag : bindActionCreators(delete_tag,dispatch),
+//         addTag : bindActionCreators(add_tag,dispatch),
 //     }
 // }
-
-function mapStateToProps(state) {
-    return{
-        tags:state.admin.tags
-    }
-}
-
-function mapDispatchToProps(dispatch) {
-    return{
-        getAllTags : bindActionCreators(get_all_tags,dispatch),
-        deleteTag : bindActionCreators(delete_tag,dispatch),
-        addTag : bindActionCreators(add_tag,dispatch),
-    }
-}
 
 export default connect(
     mapStateToProps,

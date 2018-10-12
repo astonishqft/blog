@@ -15,5 +15,6 @@ const router = express.Router();
 // });
 
 router.use('/tags', require('./tags'));
+router.use('/article', require('./article'));
 
 module.exports = router;

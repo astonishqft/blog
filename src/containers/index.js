@@ -17,11 +17,24 @@ const { clear_msg, user_auth } = actions;
 class AppIndex extends Component {
     constructor(props) {
         super(props);
-
+        this.openNotification = this.openNotification.bind(this);
     }
 
+    openNotification(type, message) {
+        console.log(type)
+        console.log(message)
+        const that = this;
+        notification[type]({
+            message,
+            onClose: ()=> {
+                that.props.clear_msg();
+            }
+        });
+        that.props.clear_msg();
+    };
+
     render() {
-        let { isFetching } = this.props;
+        let { isFetching, notification } = this.props;
         return (
             <Router>
                 <div>
@@ -31,6 +44,11 @@ class AppIndex extends Component {
                         <Route component={Front} />
                     </Switch>
                     { isFetching && <Loading/>}
+                    {this.props.notification && this.props.notification.content ?
+                        (this.props.notification.type === 1 ?
+                            this.openNotification('success', this.props.notification.content) :
+                            this.openNotification('error', this.props.notification.content)) :
+                        null}
                 </div>
             </Router>
         )
