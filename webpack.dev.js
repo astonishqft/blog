@@ -25,6 +25,7 @@ module.exports = {
         path: OUTPUT_PATH,
         publicPath: "/",
         filename: "[name]-[hash:9].js",
+        chunkFilename: "[name]-chunk.js",
     },
     devtool: "cheap-module-eval-source-map",
     module: {

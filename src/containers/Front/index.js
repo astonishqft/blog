@@ -3,10 +3,13 @@ import {
     Route,
     Switch
 } from 'react-router-dom'
-import Home from '../Home'
+// import Home from '../Home'
 import Detail from '../Detail'
 import NotFound from '../NotFound'
 import { BackTop } from 'antd'
+import asyncComponent from '../asyncComponent';
+
+const Home = asyncComponent(()=>import(/* webpackChunkName: "home" */"../Home"));
 
 class Front extends Component {
     constructor(props){

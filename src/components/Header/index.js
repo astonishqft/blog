@@ -6,14 +6,14 @@ class Header extends Component {
     render() {
         return (
             <div className={style.header}>
-                <span className={style.log}>
+                <span className={style.log} onClick={this.props.handleLogin}>
                     <img src={logo} alt=""/>
-                    <h1>Qi futao's blog</h1>
-                    <p>If you can, you can !</p>
                 </span>
+                <h1>Qi futao's blog</h1>
+                <p>If you can, you can !</p>
             </div>
         )
     }
-};
+}
 
 export default Header;

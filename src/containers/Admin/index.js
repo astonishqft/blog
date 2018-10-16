@@ -2,14 +2,23 @@ import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import style from './style.css';
 import AdminMenu from '../../components/AdminMenu';
-import AdminIndex from '../AdminIndex';
-import AdminManagerUser from '../AdminManagerUser';
-import AdminManagerTags from '../AdminManagerTags';
-import AdminManagerArticle from '../AdminManagerArticle';
-import AdminManagerComment from '../AdminManagerComment';
-import AdminNewArticle from '../AdminNewArticle';
-import Detail from '../Detail';
+// import AdminIndex from '../AdminIndex';
+// import AdminManagerUser from '../AdminManagerUser';
+// import AdminManagerTags from '../AdminManagerTags';
+// import AdminManagerArticle from '../AdminManagerArticle';
+// import AdminManagerComment from '../AdminManagerComment';
+// import AdminNewArticle from '../AdminNewArticle';
+// import Detail from '../Detail';
 import NotFound from '../NotFound';
+import asyncComponent from "../asyncComponent";
+
+const AdminIndex = asyncComponent(()=>import(/* webpackChunkName: "adminIndex" */"../AdminIndex"));
+const AdminManagerUser = asyncComponent(()=>import(/* webpackChunkName: "adminManagerUser" */"../AdminManagerUser"));
+const AdminManagerTags = asyncComponent(()=>import(/* webpackChunkName: "adminManagerTags" */"../AdminManagerTags"));
+const AdminManagerArticle = asyncComponent(()=>import(/* webpackChunkName: "adminManagerArticle" */"../AdminManagerArticle"));
+const AdminManagerComment = asyncComponent(()=>import(/* webpackChunkName: "adminManagerComment" */"../AdminManagerComment"));
+const AdminNewArticle = asyncComponent(()=>import(/* webpackChunkName: "adminNewArticle" */"../AdminNewArticle"));
+const Detail = asyncComponent(()=>import(/* webpackChunkName: "detail" */"../Detail"));
 
 class Admin extends Component {
     render() {
