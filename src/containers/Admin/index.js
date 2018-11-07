@@ -11,6 +11,7 @@ import AdminMenu from '../../components/AdminMenu';
 // import Detail from '../Detail';
 import NotFound from '../NotFound';
 import asyncComponent from "../asyncComponent";
+import AdminHeader from '../../components/adminHeader';
 
 const AdminIndex = asyncComponent(()=>import(/* webpackChunkName: "adminIndex" */"../AdminIndex"));
 const AdminManagerUser = asyncComponent(()=>import(/* webpackChunkName: "adminManagerUser" */"../AdminManagerUser"));
@@ -20,9 +21,11 @@ const AdminManagerComment = asyncComponent(()=>import(/* webpackChunkName: "admi
 const AdminNewArticle = asyncComponent(()=>import(/* webpackChunkName: "adminNewArticle" */"../AdminNewArticle"));
 const Detail = asyncComponent(()=>import(/* webpackChunkName: "detail" */"../Detail"));
 
+
 class Admin extends Component {
     render() {
         const { url } = this.props.match;
+        console.log('当前url', url);
         return (
             <div>
                 {
@@ -30,18 +33,22 @@ class Admin extends Component {
                         <div className={ style.menuContainer }>
                             <AdminMenu history={this.props.history} />
                         </div>
+                        <div className={style.adminHeader}>
+                            <AdminHeader />
+                        </div>
                         <div className={style.contentContainer}>
                             <Switch>
                                 <Route exact path={url} component={AdminIndex}/>
-                                <Route path={`${url}/managerUser`} component={AdminManagerUser}/>
-                                <Route path={`${url}/managerTags`} component={AdminManagerTags}/>
-                                <Route path={`${url}/newArticle`} component={AdminNewArticle}/>
-                                <Route path={`${url}/managerArticle`} component={AdminManagerArticle}/>
-                                <Route path={`${url}/managerComment`} component={AdminManagerComment}/>
-                                <Route path={`${url}/detail`} component={Detail}/>
+                                <Route path={`/managerUser`} component={AdminManagerUser}/>
+                                <Route path={`/managerTags`} component={AdminManagerTags}/>
+                                <Route path={`/newArticle`} component={AdminNewArticle}/>
+                                <Route path={`/managerArticle`} component={AdminManagerArticle}/>
+                                <Route path={`/managerComment`} component={AdminManagerComment}/>
+                                <Route path={`/detail`} component={Detail}/>
                                 <Route component={NotFound}/>
                             </Switch>
                         </div>
+                        <div style={{ 'clear': 'both'}}></div>
                     </div>
                 }
             </div>

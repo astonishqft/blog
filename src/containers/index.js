@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-do
 import Front from './Front';
 import Admin from './Admin';
 import NotFound from './NotFound';
-
+import PureRenderMixiin from 'react-addons-pure-render-mixin';
 
 import { notification } from 'antd';
 import { connect } from 'react-redux';
@@ -18,11 +18,13 @@ class AppIndex extends Component {
     constructor(props) {
         super(props);
         this.openNotification = this.openNotification.bind(this);
+        this.shouldComponentUpdate = PureRenderMixiin.shouldComponentUpdate.bind(this);
     }
 
     openNotification(type, message) {
-        console.log(type)
-        console.log(message)
+        console.log('被调用了！！')
+        console.log(type);
+        console.log(message);
         const that = this;
         notification[type]({
             message,
@@ -30,7 +32,7 @@ class AppIndex extends Component {
                 that.props.clear_msg();
             }
         });
-        that.props.clear_msg();
+        // that.props.clear_msg();
     };
 
     render() {
@@ -40,10 +42,9 @@ class AppIndex extends Component {
                 <div>
                     <Switch>
                         <Route path='/404' component={NotFound} />
-                        <Route path='/admin' component={Admin} />
-                        <Route component={Front} />
+                        <Route path='/' component={Admin} />
                     </Switch>
-                    { isFetching && <Loading/>}
+                    { isFetching && <Loading />}
                     {this.props.notification && this.props.notification.content ?
                         (this.props.notification.type === 1 ?
                             this.openNotification('success', this.props.notification.content) :

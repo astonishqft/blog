@@ -52,7 +52,7 @@ export function reducer(state = initialState, action) {
         case actionTypes.FETCH_END:
             return {
                 ...state, isFetching: false
-            }
+            };
         case actionTypes.SET_MESSAGE:
             return {
                 ...state,

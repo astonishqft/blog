@@ -1,21 +1,21 @@
-.container{
-    display: flex;
-    flex-direction: row;
+.container {
     background: white;
     position: fixed;
-    height: 100%;
     top:0;
+    height: 100%;
     width: 100%;
+    /*overflow: hidden;*/
 }
 .container .menuContainer{
-    width: 15%;
-    height: 100%;
+    width: 250px;
     background: #404040;
+    float: left;
+    height: 100%;
 }
-.container .contentContainer{
-    width: 85%;
-    overflow-y: scroll;
-    padding: 20px;
+
+.container .contentContainer {
+    /*overflow-y: scroll;*/
+    margin-left: 250px;
 }
 
 .container .contentContainer h2 {
@@ -23,4 +23,10 @@
     font-weight: 300;
     line-height: 1.5;
     margin: 0 0 0.7em 0;
+}
+
+.container .adminHeader {
+    background: #ccc;
+    height: 50px;
+    margin-left: 250px;
 }

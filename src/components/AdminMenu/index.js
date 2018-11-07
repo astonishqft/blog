@@ -15,7 +15,7 @@ export default class AdminMenu extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            url: '/admin'
+            url: '/'
         }
     }
     render(){
@@ -26,7 +26,7 @@ export default class AdminMenu extends Component {
                     mode={"inline"}
                     theme={"dark"}
                     onClick={({key}) => {
-                        this.props.history.push(`/admin${key}`);
+                        this.props.history.push(`${key}`);
                         this.setState({
                             url: key
                         })

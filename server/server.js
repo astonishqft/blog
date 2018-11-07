@@ -19,7 +19,7 @@ app.use('/', history());
 
 app.use('/api', (req, res) => {
     proxy.web(req, res, { target: targetUrl});
-})
+});
 
 app.use(compression());
 app.use('/', express.static(path.join(__dirname, '..', 'build')));
@@ -55,4 +55,4 @@ app.listen(port, err => {
     }else {
         console.log(`===>open http://${config.host}:${config.port} in a browser to view the app`)
     }
-})
+});

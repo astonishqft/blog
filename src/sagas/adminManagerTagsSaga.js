@@ -46,7 +46,7 @@ export function* getAllTagsFlow() {
                 tempArr.push(res.data[i].name);
             }
             yield put({type: ManagerTagsTypes.SET_TAGS, data: tempArr});
-        }else if (res.message === '身份信息已过期，请重新登录') {
+        } else if (res.message === '身份信息已过期，请重新登录') {
             yield put({type: IndexActionTypes.SET_MESSAGE, msgContent: res.message, msgType: 1});
             setTimeout(function () {
                 location.replace('/');

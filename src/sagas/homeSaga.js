@@ -2,7 +2,7 @@ import { put, take, call, fork } from 'redux-saga/effects';
 import { get, post } from '../fetch/fetch';
 import { actionTypes as IndexActionTypes } from '../reducers/globalStateReducer';
 
-export function* login(usename, password) {
+export function* login(username, password) {
     console.log(username, password);
     yield put({type: IndexActionTypes.FETCH_START});
     try {
